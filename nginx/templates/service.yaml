@@ -3,11 +3,12 @@ kind: Service
 metadata:
   name: nginx
 spec:
+  type: {{.Values.service.type}}
   selector:
     app: nginx
     tier: frontend
   ports:
   - name: nginx-svc-port
     protocol: TCP
-    port: 80 #service port 
+    port: {{.Values.service.port}}#service port 
     targetPort: 80 # container port 
